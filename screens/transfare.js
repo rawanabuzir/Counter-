@@ -2,8 +2,8 @@ import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { useEffect } from "react";
 import TransfareScreenText from "../component/TransText";
 
-function TransfareScreen({ navigation }) {
-
+function TransfareScreen({ navigation , route }) {
+    const { agge } = route.params; 
     const newVal = function randomnum() {
         return Math.floor(Math.random() * 101);
     }
@@ -12,28 +12,24 @@ function TransfareScreen({ navigation }) {
         console.log(newVal);
     }, [newVal]);
 
-
-
-    let name = ' Rawan Khaled Aref';
-
-
-
-
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>Transfare Screen</Text>
+            <Text style={styles.header}>
+                Transfare your age to this screen, and your age is: {agge} years.
+            </Text>
             <TransfareScreenText>
                 <View>
-                    <Text style={styles.content}>This is the Transfare Screen. You can add your content here.</Text>
+                    <Text style={styles.content}>
+                        This is the Transfare Screen. You can add your content here.
+                    </Text>
                 </View>
             </TransfareScreenText>
             <TouchableOpacity
                 style={styles.button}
-                onPress={() => navigation.navigate('ScreenTwo', { newVal: newVal(), name })}
+                onPress={() => navigation.navigate('ScreenTwo', { newVal: newVal() })}
             >
                 <Text style={styles.buttonText}>Go to Screen Two</Text>
             </TouchableOpacity>
-
         </View>
     );
 }

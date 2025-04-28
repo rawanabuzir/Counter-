@@ -4,8 +4,8 @@ import { useContext, useState } from "react";
 import { RandomContext } from "../store/randomContext";
 
 function TransfareScreenTwo({ route }) {
-    const { randomNum, getrandinit } = useContext(RandomContext);
-    const { newVal, name } = route.params;
+    const { randomNum, getrandinit ,Firstname} = useContext(RandomContext);
+    const { newVal } = route.params;
 
     const [targetAchieved, setTargetAchieved] = useState(false);
     const [fadeAnim] = useState(new Animated.Value(0)); 
@@ -27,7 +27,7 @@ function TransfareScreenTwo({ route }) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>Transfare Screen Two - Welcome: {name}</Text>
+            <Text style={styles.header}>Transfare Screen Two - Welcome: {Firstname}</Text>
             <TransfareScreenText>
                 <View>
                     <Text style={styles.content}>

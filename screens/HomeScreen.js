@@ -5,10 +5,14 @@ import users from '../DummyData/DataObject';
 
 
 const HomeScreen = ({ navigation }) => {
+
+    const agge = 24;
+
+
     return (
         <View style={styles.container}>
 
-            <Text style={styles.title}>Welcome {users[1].name} to the Home Screen</Text>
+            <Text style={styles.title}>Welcome {users[1].name} {agge} to the Home Screen</Text>
 
 
             <View style={styles.containertwo}>
@@ -23,7 +27,7 @@ const HomeScreen = ({ navigation }) => {
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => navigation.navigate('TransfareScreen')}
+                    onPress={() => navigation.navigate('TransfareScreen',{ agge })}
                 >
                     <Text style={styles.buttonText}>Go to trans</Text>
                 </TouchableOpacity>
