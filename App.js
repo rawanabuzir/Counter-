@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './screens/HomeScreen';
+import DetailsScreen from './screens/DetailsScreen';
+import TransfareScreen from './screens/transfare';
+import TransfareScreenTwo from './screens/transfareNumtwo';
+
+
+import CounterProvider from './store/contextconter';
+import RandomProvider from './store/randomContext';
+
+
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <CounterProvider>
+    <RandomProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+        
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Details" component={DetailsScreen} />
+          <Stack.Screen name="TransfareScreen" component={TransfareScreen} />
+          <Stack.Screen name="ScreenTwo" component={TransfareScreenTwo} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      </RandomProvider>
+    </CounterProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
